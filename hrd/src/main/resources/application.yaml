@@ -1,0 +1,36 @@
+# Spring
+spring:
+
+# JDBC
+  datasource:
+    url: jdbc:postgresql://localhost:5433/hrd_bd
+    username: postgres
+    password: postgres
+    platform: POSTGRESQL
+    hikari:
+      maximum-pool-size: 5
+
+  # JPA
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
+    open-in-view: false
+    properties:
+      # fixes Caused by: java.sql.SQLFeatureNotSupportedException:
+      # Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented.
+      hibernate.jdbc.lob.non_contextual_creation: true
+      hibernate.globally_quoted_identifiers: true
+      hibernate.hbm2ddl.auto: update
+      hibernate.show_sql: true
+
+  # Mapper
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-ignored-properties: false
+      fail-on-unknown-properties: false
+logging:
+  level:
+    org.springframework: info
