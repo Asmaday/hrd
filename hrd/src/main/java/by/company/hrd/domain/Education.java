@@ -12,12 +12,9 @@ public class Education {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_education")
     private int idEducation;
-    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
-//    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id_institution_education")
-//    private InstitutionEducation institutionEducation;
     @Column(name = "education_type")
     @Enumerated
     private EducationType educationType;
@@ -40,14 +37,6 @@ public class Education {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-
-//    public InstitutionEducation getInstitutionEducation() {
-//        return institutionEducation;
-//    }
-//
-//    public void setInstitutionEducation(InstitutionEducation institutionEducation) {
-//        this.institutionEducation = institutionEducation;
-//    }
 
     public EducationLevel getEducationLevel() {
         return educationLevel;

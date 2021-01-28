@@ -21,7 +21,7 @@ spring:
       # Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented.
       hibernate.jdbc.lob.non_contextual_creation: true
       hibernate.globally_quoted_identifiers: true
-      hibernate.hbm2ddl.auto: update
+      hibernate.hbm2ddl.auto: validate
       hibernate.show_sql: true
 
   # Mapper

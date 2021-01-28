@@ -11,12 +11,6 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long>
 {
-
-    //Запрос для вытягивание из базы данных сотрудников по фильтру:
-    // табельный номер
-    // ФИО
-    // должность
-    // отдел
     @Query("SELECT er FROM Employee er JOIN FETCH er.position p JOIN FETCH er.department d" +
             " JOIN FETCH er.education ed WHERE er.personNumber = :personNumber OR " +
             "er.firstName = :firstName OR er.surName = :surName OR er.patronymic = :patronymic " +
@@ -27,6 +21,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>
                                 @Param("patronymic")String patronymic,
                                 @Param("idPosition")Integer idPosition,
                                 @Param("idDepartment")Integer idDepartment);
+
+
 
     // вытягивание сотрудников по фильтру: образование EducationLevel enum класс.
 //    @Query("SELECT e FROM Employee e JOIN FETCH e.education ed " +

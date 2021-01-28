@@ -1,10 +1,7 @@
 package by.company.hrd.service;
 
-import by.company.hrd.dao.DepartmentRepository;
-import by.company.hrd.dao.FamilyRepository;
-import by.company.hrd.dao.PositionRepository;
+import by.company.hrd.dao.*;
 import by.company.hrd.domain.*;
-import by.company.hrd.dao.EmployeeRepository;
 import by.company.hrd.domain.enumeration.Gender;
 import by.company.hrd.view.*;
 import org.slf4j.Logger;
@@ -26,6 +23,22 @@ public class EmployeeService {
     private PositionRepository positionRepository;
     @Autowired
     private DepartmentRepository departmentRepository;
+    @Autowired
+    private EducationRepository educationRepository;
+    @Autowired
+    private FamilyRepository familyRepository;
+    @Autowired
+    private HolidayRepository holidayRepository;
+    @Autowired
+    private InstitutionEducationRepository institutionEducationRepository;
+    @Autowired
+    private PassportRepository passportRepository;
+    @Autowired
+    private ProtectionWorkRepository protectionWorkRepository;
+    @Autowired
+    private TraningRepository traningRepository;
+    @Autowired
+    private WorkerCategoryRepository workerCategoryRepository;
 
     public List<EmployeeResponse> getEmployeeInfo(EmployeeRequest request) {
         List<Employee> employee = employeeRepository.findEmployee(request.getPersonNumber(),
@@ -75,7 +88,6 @@ public class EmployeeService {
         Training training = new Training();
         WorkerCategory workerCategory = new WorkerCategory();
         InstitutionEducation institutionEducation = new InstitutionEducation();
-
         // add Employee
         employee.setPersonNumber(request.getPersonNumber());
         employee.setFirstName(request.getFirstName());
@@ -134,9 +146,15 @@ public class EmployeeService {
         workerCategory.setReason(request.getReasonWorkerCategory());
         employee.setWorkerCategory(workerCategory);
         employeeRepository.save(employee);
+        educationRepository.save(education);
+        familyRepository.save(family);
+        holidayRepository.save(holiday);
+        institutionEducationRepository.save(institutionEducation);
+        passportRepository.save(passport);
+        protectionWorkRepository.save(protectionWork);
+        traningRepository.save(training);
+        workerCategoryRepository.save(workerCategory);
     }
-
-
 
     public List<EducationResponse> getEducationInfo(EducationRequest request) {
         List<Employee> employees = employeeRepository.findEducation(

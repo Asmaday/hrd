@@ -10,8 +10,8 @@ import java.time.LocalDate;
 public class Family {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_child")
-    private int idEducation;
+    @Column(name = "id_family")
+    private int idFamily;
     @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
@@ -25,12 +25,12 @@ public class Family {
     @JsonFormat(pattern="dd.MM.yyyy")
     private LocalDate dateBirthChild;
 
-    public int getIdEducation() {
-        return idEducation;
+    public int getIdFamily() {
+        return idFamily;
     }
 
-    public void setIdEducation(int idEducation) {
-        this.idEducation = idEducation;
+    public void setIdFamily(int idFamily) {
+        this.idFamily = idFamily;
     }
 
     public Employee getEmployee() {
