@@ -12,7 +12,7 @@ public class Passport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_passport")
     private int idPassport;
-    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
     @Column(name = "passport_number")

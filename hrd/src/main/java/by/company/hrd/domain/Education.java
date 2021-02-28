@@ -12,7 +12,7 @@ public class Education {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_education")
     private int idEducation;
-    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
     @Column(name = "education_type")

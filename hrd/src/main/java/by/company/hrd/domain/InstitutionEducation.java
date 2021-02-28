@@ -11,7 +11,7 @@ public class InstitutionEducation {
     private int idInstitutionEducation;
     @Column(name = "institution_education_name")
     private String institutionEducationName;
-    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
 

@@ -14,7 +14,7 @@ public class ProtectionWork {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_protection_work")
     private int idProtectionWork;
-    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
     @Column(name = "protection_work_date")

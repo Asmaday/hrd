@@ -110,41 +110,49 @@ public class EmployeeService {
         // add Education
         education.setEducationLevel(request.getEducationLevel());
         education.setEducationType(request.getEducationType());
-        employee.setEducation(education);
+        education.setEmployee(employee);
+        //employee.setEducation(education);
         // add Family
         family.setFirstNameChild(request.getFirstNameChild());
         family.setSurNameChild(request.getSurNameChild());
         family.setPatronymicChild(request.getPatronymicChild());
         family.setDateBirthChild(request.getDateBirthChild());
-        employee.setFamily(family);
+        family.setEmployee(employee);
+        //employee.setFamily(family);
         // add Holiday
         holiday.setHolidayType(request.getHolidayType());
         holiday.setDateStart(request.getDateStart());
         holiday.setDateEnd(request.getDateEnd());
         holiday.setReasonHoliday(request.getReasonHoliday());
-        employee.setHoliday(holiday);
+        holiday.setEmployee(employee);
+        //employee.setHoliday(holiday);
         // add InstitutionEducation
         institutionEducation.setInstitutionEducationName(request.getInstitutionEducationName());
-        employee.setInstitutionEducation(institutionEducation);
+        institutionEducation.setEmployee(employee);
+        //employee.setInstitutionEducation(institutionEducation);
         // add Passport
         passport.setPassportNumber(request.getPassportNumber());
         passport.setIssueDepartment(request.getIssueDepartment());
         passport.setIssueDate(request.getIssueDate());
-        employee.setPassport(passport);
+        passport.setEmployee(employee);
+        //employee.setPassport(passport);
         // add ProtectionWork
         protectionWork.setProtectionWorkDate(request.getProtectionWorkDate());
         protectionWork.setResult(request.getResultPrWork());
         protectionWork.setReason(request.getReasonPrWork());
-        employee.setProtectionWork(protectionWork);
+        protectionWork.setEmployee(employee);
+        //employee.setProtectionWork(protectionWork);
         // Training
         training.setTrainingDate(request.getTrainingDate());
         training.setTrainingName(request.getTrainingName());
-        employee.setTraining(training);
+        training.setEmployee(employee);
+        //employee.setTraining(training);
         // WorkerCategory
         workerCategory.setWorkerCategoryDate(request.getWorkerCategoryDate());
         workerCategory.setResult(request.getResultWorkerrCategory());
         workerCategory.setReason(request.getReasonWorkerCategory());
-        employee.setWorkerCategory(workerCategory);
+        workerCategory.setEmployee(employee);
+        //employee.setWorkerCategory(workerCategory);
         employeeRepository.save(employee);
         educationRepository.save(education);
         familyRepository.save(family);

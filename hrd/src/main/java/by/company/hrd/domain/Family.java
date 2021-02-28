@@ -12,7 +12,7 @@ public class Family {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_family")
     private int idFamily;
-    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
     @Column(name = "first_name_child")

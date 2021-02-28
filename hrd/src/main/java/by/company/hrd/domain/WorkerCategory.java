@@ -15,7 +15,7 @@ public class WorkerCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_worker_category")
     private int idWorkerCategory;
-    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
     private Employee employee;
     @Column(name = "worker_category_date")
