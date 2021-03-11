@@ -55,7 +55,6 @@ public class EmployeeService {
 
     private EmployeeResponse getResponse(Employee employee) {
         EmployeeResponse wr = new EmployeeResponse();
-        Education education = new Education();
         // employee
         wr.setPersonNumber(employee.getPersonNumber());
         wr.setFirstName(employee.getFirstName());
@@ -74,7 +73,10 @@ public class EmployeeService {
         wr.setEmploymentDate(employee.getEmploymentDate());
         wr.setStatusEmployee(employee.getStatusEmployee());
         // Education
-        wr.setEducationType(education.getEducationType());
+        wr.setEducationType(employee.getEducation().getEducationType());
+        wr.setEducationLevel(employee.getEducation().getEducationLevel());
+        // InstitutionEducation
+        wr.setInstitutionEducationName(employee.getInstitutionEducation().getInstitutionEducationName());
         return wr;
     }
 
